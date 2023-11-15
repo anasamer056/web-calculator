@@ -4,7 +4,7 @@
 body { 
     background-color: rgb(190, 199, 208);
     display: flex;
-    height: 100vh;
+    height: 95vh;
 }
 
 .result {
@@ -15,7 +15,10 @@ body {
 .buttons {
     height: 250px;
     background-color: #F0F0F3;
-    padding: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
 }
 
 .calculator {
@@ -23,16 +26,28 @@ body {
     width: 200px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-evenly;
-    
+.buttons button { 
+    min-width: 23%;
+    border-radius: 20%;
+    border: 0px ;
+    background-color: white;
+    font-size: 15px;
 }
 
-.row button {
-    flex: auto;
+button:hover {
+    background-color: rgb(222, 222, 222);
+    transition: 0.2s;
 }
 
-.row .zero {
-    flex: 2 1 auto;
+.buttons .zero {
+    flex-grow: 1;
+}
+
+.buttons .operator {
+    font-weight: 800;
+    background-color: rgb(224, 212, 255);
+}
+
+.operator:hover { 
+    background-color: rgb(178, 163, 217);
 }
