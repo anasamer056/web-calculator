@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+body { 
+    background-color: rgb(190, 199, 208);
+    display: flex;
+    height: 100vh;
+}
+
+.result {
+    height: 150px;
+    background-color: rgb(38, 36, 36);
+}
+
+.buttons {
+    height: 250px;
+    background-color: #F0F0F3;
+    padding: 30px 10px;
+}
+
+.calculator {
+    margin: auto;
+    width: 200px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.row button {
+    flex: auto;
+}
+
+.row .zero {
+    flex: 2 1 auto;
+}
