@@ -3,6 +3,13 @@ let firstOperand;
 let secondOperand;
 let operator;
 
+
+const numbers = document.querySelectorAll(".num");
+const bottomDisplay = document.querySelector(".bottom");
+const topDisplay = document.querySelector(".top");
+console.dir(bottomDisplay)
+
+
 // Math Logic 
 let add = (a,b) => a+b;
 let subtract = (a,b) => a-b;
@@ -26,5 +33,9 @@ function operate (firstOperand, operator, secondOperand) {
     return legend[operator](+firstOperand, +secondOperand);
 }
 
-console.log("3 + 5 = ", operate("3", "/", "5"))
+numbers.forEach((number)=>{
+    number.addEventListener("click", ()=>{
+        bottomDisplay.textContent += number.textContent;
+    });
+})
 

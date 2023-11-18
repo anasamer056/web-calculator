@@ -20,13 +20,13 @@ body {
     
 }
 
-.result {
+.bottom {
     color: white;
     font-weight: 700;
     font-size: 2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.expression {
+.top {
     color: #728AB7;
 }
 
