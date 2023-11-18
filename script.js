@@ -34,6 +34,7 @@ function operate (firstOperand, operator, secondOperand) {
         "*": multiply,
         "x": multiply,
         "/": divide,
+        "÷": divide,
     }
     return legend[operator](+firstOperand, +secondOperand);
 }
@@ -61,10 +62,11 @@ function updateDisplay() {
 
 operators.forEach((op)=>{
     op.addEventListener("click", ()=>{
-        operator = op.textContent;
+        
         if (!prevOperand) {
             // logic
             prevOperand = bottomDisplay.textContent;
+            operator = op.textContent;
             isPreceededByOperator = true;
 
             // front 
@@ -75,6 +77,8 @@ operators.forEach((op)=>{
             
             prevOperand = operate(prevOperand, operator, currentOperand);
             isPreceededByOperator = true;
+
+            operator = op.textContent;
 
             // front 
             topDisplay.textContent = prevOperand + operator
