@@ -10,6 +10,7 @@ const bottomDisplay = document.querySelector(".bottom");
 const topDisplay = document.querySelector(".top");
 const clearBtn = document.querySelector(".clear");
 const equalBtn = document.querySelector(".equal");
+const decimalBtn = document.querySelector(".decimal");
 const operators = document.querySelectorAll(".operator");
 
 
@@ -63,6 +64,10 @@ equalBtn.addEventListener("click", ()=> {
     topDisplay.textContent = prevOperand + operator + currentOperand + "="
     bottomDisplay.textContent = result;
     prevOperand = operator = currentOperand = null;
+})
+decimalBtn.addEventListener("click", ()=>{
+    if (bottomDisplay.textContent.includes(".")) return; 
+    bottomDisplay.textContent += "."
 })
 
 function updateDisplay() {
