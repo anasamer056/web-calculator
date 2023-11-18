@@ -1,13 +1,15 @@
 // Variables 
-let firstOperand;
-let secondOperand;
+let prevOperand;
+let currentOperand;
 let operator;
 
 
 const numbers = document.querySelectorAll(".num");
 const bottomDisplay = document.querySelector(".bottom");
 const topDisplay = document.querySelector(".top");
-console.dir(bottomDisplay)
+const clearBtn = document.querySelector(".clear");
+
+console.dir(clearBtn)
 
 
 // Math Logic 
@@ -39,3 +41,16 @@ numbers.forEach((number)=>{
     });
 })
 
+clearBtn.addEventListener("click", ()=> {
+    prevOperand = currentOperand = null;
+    updateDisplay(); 
+})
+
+function updateDisplay() {
+    topDisplay.textContent = prevOperand ? prevOperand + operator : "";
+    bottomDisplay.textContent = currentOperand ?? "";
+
+}
+// topDisplay.textContent = "";
+//     bottomDisplay.textContent = "";
+    
