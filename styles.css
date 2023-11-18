@@ -57,6 +57,9 @@ body {
     font-size: 15px;
     color: rgb(44, 44, 44)
 }
+.buttons .backspace {
+    font-size: 12px
+}
 
 button:hover {
     background-color: rgb(222, 222, 222);

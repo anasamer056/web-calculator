@@ -9,6 +9,7 @@ const numbers = document.querySelectorAll(".num");
 const bottomDisplay = document.querySelector(".bottom");
 const topDisplay = document.querySelector(".top");
 const clearBtn = document.querySelector(".clear");
+const backspaceBtn = document.querySelector(".backspace");
 const equalBtn = document.querySelector(".equal");
 const decimalBtn = document.querySelector(".decimal");
 const signBtn = document.querySelector(".sign");
@@ -56,9 +57,14 @@ numbers.forEach((number)=>{
 clearBtn.addEventListener("click", ()=> {
     prevOperand = currentOperand = null;
     updateDisplay(); 
-})
+});
+
+backspaceBtn.addEventListener("click", ()=> {
+    bottomDisplay.textContent = bottomDisplay.textContent.slice(0,-1);
+});
+
 equalBtn.addEventListener("click", ()=> {
-    if (isPreceededByOperator) return;
+    if (isPreceededByOperator || !operator) return;
     currentOperand = bottomDisplay.textContent;
     let result = operate(prevOperand, operator, currentOperand);
     // front 
