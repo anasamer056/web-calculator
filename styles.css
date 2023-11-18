@@ -23,6 +23,7 @@ body {
 .bottom {
     color: white;
     font-weight: 700;
+    min-height: 37px;
     font-size: 2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

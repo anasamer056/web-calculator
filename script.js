@@ -2,14 +2,17 @@
 let prevOperand;
 let currentOperand;
 let operator;
+let isPreceededByOperator = false;
 
 
 const numbers = document.querySelectorAll(".num");
 const bottomDisplay = document.querySelector(".bottom");
 const topDisplay = document.querySelector(".top");
 const clearBtn = document.querySelector(".clear");
+const operators = document.querySelectorAll(".operator");
 
-console.dir(clearBtn)
+
+console.dir(operators)
 
 
 // Math Logic 
@@ -37,7 +40,12 @@ function operate (firstOperand, operator, secondOperand) {
 
 numbers.forEach((number)=>{
     number.addEventListener("click", ()=>{
-        bottomDisplay.textContent += number.textContent;
+        if (!isPreceededByOperator) {
+            bottomDisplay.textContent += number.textContent;
+        } else {
+            bottomDisplay.textContent = number.textContent;
+            isPreceededByOperator = false; 
+        }
     });
 })
 
@@ -49,8 +57,28 @@ clearBtn.addEventListener("click", ()=> {
 function updateDisplay() {
     topDisplay.textContent = prevOperand ? prevOperand + operator : "";
     bottomDisplay.textContent = currentOperand ?? "";
-
 }
-// topDisplay.textContent = "";
-//     bottomDisplay.textContent = "";
-    
+
+operators.forEach((op)=>{
+    op.addEventListener("click", ()=>{
+        operator = op.textContent;
+        if (!prevOperand) {
+            // logic
+            prevOperand = bottomDisplay.textContent;
+            isPreceededByOperator = true;
+
+            // front 
+            topDisplay.textContent = prevOperand + operator
+        } else {
+            // logic
+            currentOperand = bottomDisplay.textContent;
+            
+            prevOperand = operate(prevOperand, operator, currentOperand);
+            isPreceededByOperator = true;
+
+            // front 
+            topDisplay.textContent = prevOperand + operator
+            bottomDisplay.textContent = prevOperand;
+        }
+    })
+})
