@@ -58,7 +58,7 @@ clearBtn.addEventListener("click", ()=> {
     updateDisplay(); 
 })
 equalBtn.addEventListener("click", ()=> {
-    if (!operator) return;
+    if (isPreceededByOperator) return;
     currentOperand = bottomDisplay.textContent;
     let result = operate(prevOperand, operator, currentOperand);
     // front 
