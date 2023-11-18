@@ -72,7 +72,15 @@ function updateDisplay() {
 
 operators.forEach((op)=>{
     op.addEventListener("click", ()=>{
-        
+
+        if (isPreceededByOperator) {
+            // Update the operator variable
+            operator = op.textContent
+            // front 
+            topDisplay.textContent = prevOperand + operator
+            return;
+        }
+
         if (!prevOperand) {
             // logic
             prevOperand = bottomDisplay.textContent;
