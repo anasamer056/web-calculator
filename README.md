@@ -2,4 +2,4 @@
 This web app is part of The Odin Project's Foundations course. 
 
 ### Live Preview 
-TODO
+https://anasamer056.github.io/web-calculator/ 
